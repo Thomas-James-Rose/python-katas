@@ -27,8 +27,8 @@ def knights_attack(start, end, obstacles):
   distance_to_end = tuple(t[1] - t[0] for t in zip(knight_pos, end))
 
   chess_board = [["[ ]" for y in range(8)] for x in range(8)]
-  chess_board[knight_pos[0]][knight_pos[1]] = "[K]"
-  chess_board[end[0]][end[1]] = "[O]"
+  chess_board[knight_pos[0]][knight_pos[1]] = "[♘]"
+  chess_board[end[0]][end[1]] = "[👑]"
   print_chess_board(chess_board)
 
   move_num = 0
@@ -37,11 +37,10 @@ def knights_attack(start, end, obstacles):
     print(f"\n Move {move_num}")
     chess_board[knight_pos[0]][knight_pos[1]] = "[ ]"
     knight_pos = move_knight(knight_pos, calculate_next_move(distance_to_end))
-    chess_board[knight_pos[0]][knight_pos[1]] = "[K]"
+    chess_board[knight_pos[0]][knight_pos[1]] = "[♘]"
     distance_to_end = tuple(t[1] - t[0] for t in zip(knight_pos, end))
-    print(distance_to_end)
     print_chess_board(chess_board)
 
   print("\n Done!")
   
-knights_attack((1,1), (5,2), [])
+knights_attack((1,1), (4,3), [])
