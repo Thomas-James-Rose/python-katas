@@ -13,3 +13,6 @@ Example:
 "zzbaabcd" -> 4
 "" -> 0
 ```
+
+## CodeWars Link
+https://www.codewars.com/kata/longest-palindrome/python
