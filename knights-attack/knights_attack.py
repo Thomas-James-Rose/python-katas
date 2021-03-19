@@ -8,14 +8,59 @@ def print_chess_board(board):
 
 
 def calculate_next_move(distance_to_end):
-  if(distance_to_end[0] >= 2 and distance_to_end[1] >= 1):
+
+  # One move to finish!
+  if(distance_to_end[0] == 2 and distance_to_end[1] == 1):
     return (2, 1)
-  elif(distance_to_end[0] <= -2 and distance_to_end[1] >= 1):
-    return (-2, 1)
-  elif(distance_to_end[1]) == 0:
+  elif(distance_to_end[0] == 1 and distance_to_end[1] == 2):
     return (1, 2)
-  elif(distance_to_end[0] >= 1 and distance_to_end[1] <= -2):
+  if(distance_to_end[0] == 2 and distance_to_end[1] == -1):
+    return (2, -1)
+  elif(distance_to_end[0] == 1 and distance_to_end[1] == -2):
     return (1, -2)
+  elif(distance_to_end[0] == -2 and distance_to_end[1] == 1):
+    return (-2, 1)
+  elif(distance_to_end[0] == -1 and distance_to_end[1] == 2):
+    return (-1, 2)
+  elif(distance_to_end[0] == -2 and distance_to_end[1] == -1):
+    return (-2, -1)
+  elif(distance_to_end[0] == -1 and distance_to_end[1] == -2):
+    return (-1, -2)
+
+  # Two moves to finish!
+  elif(distance_to_end[0] == 0 and distance_to_end[1] == -2):
+    return(2, -1)
+  elif(distance_to_end[0] == 0 and distance_to_end[1] == 2):
+    return(2, 1)
+  elif(distance_to_end[0] == -2 and distance_to_end[1] == 0):
+    return(-1, 2)
+  elif(distance_to_end[0] == 2 and distance_to_end[1] == 0):
+    return(1, 2)
+  elif(distance_to_end[0] == 1 and distance_to_end[1] == 1):
+    return(2, -1)
+  elif(distance_to_end[0] == -1 and distance_to_end[1] == 1):
+    return(-2, -1)
+  elif(distance_to_end[0] == -1 and distance_to_end[1] == -1):
+    return(1, -2)
+  elif(distance_to_end[0] == 1 and distance_to_end[1] == -1):
+    return(2, 1)
+
+  # Three moves to finish!
+  elif(distance_to_end[0] == 0 and distance_to_end[1] == 1):
+    return(2, 1)
+  elif(distance_to_end[0] == 0 and distance_to_end[1] == -1):
+    return(2, -1)
+  elif(distance_to_end[0] == 1 and distance_to_end[1] == 0):
+    return(1, 2)
+  elif(distance_to_end[0] == -1 and distance_to_end[1] == 0):
+    return(-1, 2)
+
+
+  # Other garbage
+  elif(distance_to_end[0] > 2):
+    return (2, 1)
+  elif(distance_to_end[0] < -2):
+    return (-2, 1)
   else:
     return (0, 0)
 
@@ -43,4 +88,4 @@ def knights_attack(start, end, obstacles):
 
   print("\n Done!")
   
-knights_attack((1,1), (4,3), [])
+knights_attack((1,1), (1,2), [])
